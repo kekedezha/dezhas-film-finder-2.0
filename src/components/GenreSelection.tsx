@@ -82,12 +82,12 @@ export const GenreForm: React.FC<GenreProps> = ({ updateSelectedGenre }) => {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-x-4 flex items-end">
                 <FormField 
                     control={form.control}
                     name="genre"
                     render={({ field }) => (
-                        <FormItem>
+                        <FormItem >
                             <FormLabel>Select Movie Genre: </FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
@@ -106,7 +106,7 @@ export const GenreForm: React.FC<GenreProps> = ({ updateSelectedGenre }) => {
                         </FormItem>
                     )}
                 />
-                <Button type="submit">Generate</Button>
+                <Button className="mb-2" type="submit">Generate</Button>
             </form>
         </Form>
     )
