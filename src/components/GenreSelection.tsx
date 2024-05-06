@@ -34,7 +34,11 @@ const GenreFormSchema = z.object({
         })
 })
 
-export function GenreForm() {
+type GenreProps = {
+    updateSelectedGenre: (genreSelectedByUser:string)=>void;
+}
+
+export const GenreForm: React.FC<GenreProps> = ({ updateSelectedGenre }) => {
     // Initialize state with an empty array of the specified type
     const [genres, setGenres] = useState<string[]>([]);
 
@@ -72,8 +76,8 @@ export function GenreForm() {
     }, [])
 
 
-    const onSubmit = () => {
-
+    const onSubmit = (data: z.infer<typeof GenreFormSchema>) => {
+        updateSelectedGenre(data.genre);
     }
 
     return (

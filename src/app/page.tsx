@@ -6,6 +6,10 @@ import { useState } from "react";
 export default function Home() {
   const [selectedGenre, setSelectedGenre] = useState<string>("");
 
+  const updateSelectedGenre = (genreSelectedByUser: string) => {
+    setSelectedGenre(genreSelectedByUser);
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center pt-10 px-24">
       <div className="z-10 w-full max-w-5xl mb-3 items-center justify-between font-sans text-sm lg:flex">
@@ -25,7 +29,7 @@ export default function Home() {
       </p>
 
       <div className="min-h-80 text-center flex place-items-center">
-        <GenreForm />
+        <GenreForm updateSelectedGenre={updateSelectedGenre} />
       </div>
 
       <div className="fixed bottom-6 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
