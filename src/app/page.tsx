@@ -1,12 +1,13 @@
 "use client";
 
 import { GenreForm } from "@/components/GenreSelection";
+import { MovieView } from "@/components/MovieComponent";
 import { useState } from "react";
 
 export default function Home() {
-  const [selectedGenre, setSelectedGenre] = useState<string>("");
+  const [selectedGenre, setSelectedGenre] = useState<number>();
 
-  const updateSelectedGenre = (genreSelectedByUser: string) => {
+  const updateSelectedGenre = (genreSelectedByUser: number) => {
     setSelectedGenre(genreSelectedByUser);
   }
 
@@ -28,11 +29,12 @@ export default function Home() {
           Select genres and/or add more filters to generate your next movie to watch!
       </p>
 
-      <div className="min-h-80 text-center flex place-items-center">
-        <GenreForm updateSelectedGenre={updateSelectedGenre} />
+      <div className="min-h-80 text-center flex flex-col place-items-center space-y-6">
+        <GenreForm updateSelectedGenreId={updateSelectedGenre} />
+        <MovieView genre={selectedGenre} />
       </div>
 
-      <div className="fixed bottom-6 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+      {/* <div className="fixed bottom-6 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
         <a
           href=""
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-slate-900 hover:dark:border-neutral-400 hover:dark:bg-neutral-400/30"
@@ -88,7 +90,7 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
-      </div>
+      </div> */}
     </main>
   );
 }

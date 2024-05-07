@@ -35,12 +35,13 @@ const GenreFormSchema = z.object({
 })
 
 type GenreProps = {
-    updateSelectedGenre: (genreSelectedByUser:string)=>void;
+    updateSelectedGenreId: (genreSelectedByUser:number)=>void;
 }
 
-export const GenreForm: React.FC<GenreProps> = ({ updateSelectedGenre }) => {
+export const GenreForm: React.FC<GenreProps> = ({ updateSelectedGenreId }) => {
     // Initialize state with an empty array of the specified type
     const [genres, setGenres] = useState<string[]>([]);
+    const [genreIds, setGenreIds] = useState<number[]>([]);
 
     const form = useForm<z.infer<typeof GenreFormSchema>>({
         resolver: zodResolver(GenreFormSchema),
@@ -64,7 +65,9 @@ export const GenreForm: React.FC<GenreProps> = ({ updateSelectedGenre }) => {
                     // Await the response promise to be converted to a json object.
                     const jsonResponse = await response.json();
                     const fetchedGenres = jsonResponse.genres.map((genre: { name: string }) => genre.name);
+                    const fethchedGenresIds = jsonResponse.genres.map((id: {id: number}) => id.id);
                     setGenres(fetchedGenres); // Update genres state with fetched genres
+                    setGenreIds(fethchedGenresIds); //Updated array containing genreIds
                 }
             } catch(error) {
                 console.log(error);
@@ -77,7 +80,8 @@ export const GenreForm: React.FC<GenreProps> = ({ updateSelectedGenre }) => {
 
 
     const onSubmit = (data: z.infer<typeof GenreFormSchema>) => {
-        updateSelectedGenre(data.genre);
+        const index: number = genres.indexOf(data.genre);
+        updateSelectedGenreId(genreIds[index]);
     }
 
     return (
