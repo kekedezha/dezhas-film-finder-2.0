@@ -6,9 +6,18 @@ import { useState } from "react";
 
 export default function Home() {
   const [selectedGenre, setSelectedGenre] = useState<number>();
+  const [genButtonToggle, setGenButtonToggle] = useState<boolean>(false);
 
   const updateSelectedGenre = (genreSelectedByUser: number) => {
     setSelectedGenre(genreSelectedByUser);
+  }
+
+  const toggleGenButton = () => {
+    if (genButtonToggle == false) {
+      setGenButtonToggle(true);
+    } else {
+    setGenButtonToggle(false)
+    }
   }
 
   return (
@@ -30,8 +39,12 @@ export default function Home() {
       </p>
 
       <div className="min-h-80 text-center flex flex-col justify-center align-center space-y-6">
-        <GenreForm updateSelectedGenreId={updateSelectedGenre} />
-        <MovieView genre={selectedGenre} />
+        <GenreForm updateSelectedGenreId={updateSelectedGenre} toggleGenButton={toggleGenButton} />
+        {selectedGenre == undefined ? 
+            <></>
+          :
+            <MovieView genre={selectedGenre} genButtonToggle={genButtonToggle} />
+      }
 
       </div>
     </main>

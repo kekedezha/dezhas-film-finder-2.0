@@ -29,10 +29,11 @@ const dateOptions: Intl.DateTimeFormatOptions = {
 
 
 type MovieProps = {
-    genre: number | undefined;
+    genre: number | undefined,
+    genButtonToggle: boolean,
 }
 
-export const MovieView: React.FC<MovieProps> = ({ genre }) => {
+export const MovieView: React.FC<MovieProps> = ({ genre, genButtonToggle }) => {
     const [movieTitleToDisplay, setMovieTitleToDisplay] = useState<string>("");
     const [moviePosterToDisplay, setMoviePosterToDisplay] = useState<string>("");
     const [movieReleaseDateToDisplay, setReleaseDateToDisplay] = useState<Date>();
@@ -52,7 +53,6 @@ export const MovieView: React.FC<MovieProps> = ({ genre }) => {
         
                 if(response.ok) {
                     const jsonResponse = await response.json();
-                    console.log(jsonResponse);
                     const movies = jsonResponse.results;
                     const index: number = Math.floor(Math.random() * movies.length);
                     setMovieTitleToDisplay(movies[index].title);
@@ -87,7 +87,7 @@ export const MovieView: React.FC<MovieProps> = ({ genre }) => {
      
         getMovieDetails();
 
-    }, [genre])
+    }, [genre, genButtonToggle])
 
     if (genre == undefined) {
         return (
@@ -106,6 +106,7 @@ export const MovieView: React.FC<MovieProps> = ({ genre }) => {
                         alt="Movie Poster"
                         width={400}
                         height={650}
+                        style={{width:'auto', height:'auto'}}
                     />
                 </CardContent>
                 <div className="grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-3 lg:text-left mx-auto">

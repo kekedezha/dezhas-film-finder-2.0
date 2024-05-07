@@ -36,9 +36,10 @@ const GenreFormSchema = z.object({
 
 type GenreProps = {
     updateSelectedGenreId: (genreSelectedByUser:number)=>void;
+    toggleGenButton: ()=>void;
 }
 
-export const GenreForm: React.FC<GenreProps> = ({ updateSelectedGenreId }) => {
+export const GenreForm: React.FC<GenreProps> = ({ updateSelectedGenreId, toggleGenButton }) => {
     // Initialize state with an empty array of the specified type
     const [genres, setGenres] = useState<string[]>([]);
     const [genreIds, setGenreIds] = useState<number[]>([]);
@@ -82,6 +83,7 @@ export const GenreForm: React.FC<GenreProps> = ({ updateSelectedGenreId }) => {
     const onSubmit = (data: z.infer<typeof GenreFormSchema>) => {
         const index: number = genres.indexOf(data.genre);
         updateSelectedGenreId(genreIds[index]);
+        toggleGenButton();
     }
 
     return (
