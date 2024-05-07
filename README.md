@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dezha's Film Finder 2.0
 
-## Getting Started
+A web-app that uses [The Movie Database's](https://www.themoviedb.org/?language=en-US) api to get a random movie based off of a user selected genre!
 
-First, run the development server:
+## Motivation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project is a second iteration of my [film-finder](https://github.com/kekedezha/film_finder_pp) project where I interacted with [The Movie Database's](https://www.themoviedb.org/?language=en-US) api. However, with this version I used Next.js, Typescript tailwind, and shadcn/ui to create the web-app for a cleaner look. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚡️ Technologies
+- `Node.js`
+- `Typescript`
+- `shadcn/ui`
+- `Tailwind.css`
+  
+## 🛠️ Improvements 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Have the ability to find a movie with more than one genre. 
+- Have the ability to find a movie with certain actors
+- Ability to like or dislike movie recommendations 
+- User accounts for better recommendations 
 
-## Learn More
+## 🚦 Running the Project
 
-To learn more about Next.js, take a look at the following resources:
+To run the project in your local environment, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository to your local machine
+2. Run `npm install` or `yarn` the project directory to install the required dependencies.
+3. Run `npm start` or `yarn start` to get the project started.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.(Development mode)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
