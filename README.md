@@ -2,6 +2,8 @@
 
 A web-app that uses [The Movie Database's](https://www.themoviedb.org/?language=en-US) api to get a random movie based off of a user selected genre!
 
+<img width="1440" alt="Screenshot 2024-05-07 at 2 48 06 PM" src="https://github.com/kekedezha/dezhas-film-finder-2.0/assets/105559393/6de89353-9802-4d83-b529-63731696b7e3">
+
 ## Motivation
 
 This project is a second iteration of my [film-finder](https://github.com/kekedezha/film_finder_pp) project where I interacted with [The Movie Database's](https://www.themoviedb.org/?language=en-US) api. However, with this version I used Next.js, Typescript tailwind, and shadcn/ui to create the web-app for a cleaner look. 
