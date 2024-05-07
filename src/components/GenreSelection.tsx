@@ -86,7 +86,7 @@ export const GenreForm: React.FC<GenreProps> = ({ updateSelectedGenreId }) => {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-x-4 flex items-end">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-x-4 flex justify-center items-end">
                 <FormField 
                     control={form.control}
                     name="genre"
